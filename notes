@@ -1,0 +1,110 @@
+
+
+
+                Steps to Build MERN Project
+    -------------------------------------------------------
+
+    1. create vite react app for front end
+    2. remove the unwanted codes from App.css, App.jsx, index.css file
+    3. Install CSS styling library
+    4. create pages folder for different pages of react app, inside we creare component file
+    5. set up path/url/route for each pages of react app
+    6. create component folder for holding part of different pages of react app, inside we create component file
+    7. complete Style all the components
+
+
+--------------------------------------------------------------------------------
+    SERVER SIDE/ BACKEND : used to resolve slient/frontend request
+--------------------------------------------------------------------------------
+
+        NODE JS: provide runtime environment for js outside the browser
+    1. Is a free open-source , cross platform run time environment that lets us to create servers (used to resolve multiple client request),
+       can create web apps, command line tools and scripts
+    2. Features
+        - Extremely fast
+        - Asynchronous functions
+        - Highly scalable
+    3. Node js global objects : Objects can be accessed throughout node app without importing it, 
+        ex: "process" objects, "environmental variable" in process used to store system configuration/secret data/password of application
+    4. Node js Module system : used to share data from one file to another file, using "CommonJSModule" system
+        - require('package-name/file path'): to import data from a file/package
+        - module.exports / exports keyword : to export data from a file
+        - Predefined / Built-in Modules in Node js 
+            - fs Module : to handle file system of a computer
+            - http Module : used to create http server
+            - https Module : used  to create https server
+            - events module : manage userdefined modules events
+            - crypto module :
+    5. Execution Model : Event-Driven, non-blocking I/O model , optimized asynchronous task
+    6. API Access : access to sysytem level API (file system, network, process)
+    7. Working of Node js : used to resolve client request and send response while working with single thread
+        - non-blocking I/O
+        - Asynchronous function
+
+
+-----------------------------------------------------------------------------------------------------
+                    EXPRESS JS : NODE JS FRAMEWORK used to srever creation
+-----------------------------------------------------------------------------------------------------
+    1. used in client-server application, to create server with node js features 
+    2. Steps to create Express server for resolving client request 
+        - Create a server folder for server application 
+        - Create package.json file inside server folder, use commands : 
+                    => npm init -y
+        - update package.json file "script" key value as the following object, 
+                    => {"start": "node index.js" } , and remove its test key and value from it
+        - Install packages needed to create node server app 
+            - express package : used to create server 
+                    => npm i express
+            - cors package : used to enable cross origin Resource Sharing 
+                    => npm i cors
+            - dotenv package : used to load content .env file into process object 
+                    => npm i dotenv 
+            - mongoose package : 
+            - create .env file in server folder which used to store environmental variables of a project
+            - create .gitignore file in server folder, which used to store files/folder to be ignored while adding to git,
+              and add node_modules, .env into file contents
+            - create index.js file to define express server for resolving client request from browser
+                - import express, dotenv, cors in index.js file
+                - create express server using express package
+                - use cors in our server app , to enable data sharing between different application
+                - use express.json() parser in server app for parsing json data from client request
+                - create a port for server app
+                - run server app in specified port
+                - run server app using command : 
+                    => node index.js
+
+    - To setup database connection from nodejs server
+        - create a folder for defining db connection in server folder
+        - inside db folder create js file to define connection steps
+            - import mongoose
+            - get db connection string from mongodb atlas to js file
+            - to connect with mongodb use connect method of mongoose pass connection string as argument it will return promise
+            - import connection js file in index.js file
+    - To set up model for communicating node js and MongoDB
+        - create model folder in server folder
+        - create js file inside the folder for creating model 
+            - import mongoose
+            - create schema for the model
+            - create model using that schema
+            - export 
+
+------------------------------------------------------------------------------------------------------------
+                    MONGOOSE : NODE JS PACKAGE FOR MONGODB DATA MODELING
+                    -------------------------------------------------------
+    1. Mongoose is an ODM (Object Data Modelling) library for MongoDB, helps to create and manage MongoDB documents with nodejs
+    2. Install Mongoose in nodejs app : npm i mongoose
+    3. Schema : structure of your collection documents. it maps directly to mongodb collection. to create schema we have to create object for mongoose 'schema' class
+    4. Models take your schema and apply it to each document in its collection. create model in mongoose, use model method, syntax model('model-name', schema )
+    - Models are responsibele for all document interation like CRUD 
+    5. In nodejs app, controller will communicate with model inoreder to manage data in mongodb
+    6. CRUD operation in mongoose 
+        - creating a document using mongoose in mongodb, create an object of model with same order of its schema, after that we have to save the object in oreder to appear changes in mongodb using save() method in mongoose 
+        - Read/get documents from MongoDB : find(), findOne(), findById()
+        - Update a document : updateOne(), updateMany(), findByIdandUpdate(_id of document , update query)
+        - delete a document : deleteOne(), deleteMany(), findByIdandDelete(_id of document) 
+    7. Mongoose query helpers : skip(), limit(), sort()
+
+
+
+
+
